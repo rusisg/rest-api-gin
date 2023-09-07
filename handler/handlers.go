@@ -8,5 +8,6 @@ import (
 )
 
 func GetAlbums(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, types.NewAlbum)
+	albums := types.NewAlbum()
+	c.IndentedJSON(http.StatusOK, albums)
 }
