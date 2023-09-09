@@ -9,5 +9,6 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/albums", handler.GetAlbums)
+	r.POST("/albums", handler.PostAlbum)
 	r.Run(":8080")
 }
