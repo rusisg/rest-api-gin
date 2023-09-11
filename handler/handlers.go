@@ -5,7 +5,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rusisg/rest-api-gin/types"
-	"golang.org/x/exp/slices"
 )
 
 var albums = types.NewAlbums()
@@ -37,15 +36,15 @@ func PostAlbum(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
-func DeleteAlbumByID(c *gin.Context) {
-	id := c.Param("id")
+// func DeleteAlbumByID(c *gin.Context) {
+// 	id := c.Param("id")
 
-	for s, a := range albums {
-		if a.ID == id {
-			albums = slices.Delete(albums, s)
-			return
-		}
-	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album can't delete"})
+// 	for s, a := range albums {
+// 		if a.ID == id {
+// 			albums = slices.Delete(albums, s)
+// 			return
+// 		}
+// 	}
+// 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album can't delete"})
 
-}
+// }
