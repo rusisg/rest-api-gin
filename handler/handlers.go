@@ -36,15 +36,14 @@ func PostAlbum(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
-// func DeleteAlbumByID(c *gin.Context) {
-// 	id := c.Param("id")
+func DeleteAlbumByID(c *gin.Context) {
+	id := c.Param("id")
 
-// 	for s, a := range albums {
-// 		if a.ID == id {
-// 			albums = slices.Delete(albums, s)
-// 			return
-// 		}
-// 	}
-// 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album can't delete"})
-
-// }
+	for i, a := range albums {
+		if a.ID == id {
+			albums = append(albums[:i], albums[i+1:]...)
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album can't delete"})
+}

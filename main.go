@@ -11,7 +11,7 @@ func main() {
 	r.GET("/albums", handler.GetAlbums)
 	r.GET("/albums/:id", handler.GetAlbumByID)
 	r.POST("/albums", handler.PostAlbum)
-	// r.DELETE("/albums/delete/:id", handler.DeleteAlbumByID)
+	r.DELETE("/albums/:id", handler.DeleteAlbumByID)
 
 	r.Run(":8080")
 }
