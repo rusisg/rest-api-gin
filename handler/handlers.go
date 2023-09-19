@@ -4,10 +4,10 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/rusisg/rest-api-gin/types"
+	"github.com/rusisg/rest-api-gin/models"
 )
 
-var albums = types.NewAlbums()
+var albums = models.NewAlbums()
 
 func GetAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, albums)
@@ -26,7 +26,7 @@ func GetAlbumByID(c *gin.Context) {
 }
 
 func PostAlbum(c *gin.Context) {
-	var newAlbum types.Album
+	var newAlbum models.Album
 
 	if err := c.BindJSON(&newAlbum); err != nil {
 		return

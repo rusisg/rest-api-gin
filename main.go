@@ -11,6 +11,7 @@ func main() {
 	r.GET("/albums", handler.GetAlbums)
 	r.GET("/albums/:id", handler.GetAlbumByID)
 	r.POST("/albums", handler.PostAlbum)
+	// r.POST("/albums/", handler.UpdateAlbums) plan to add
 	r.DELETE("/albums/:id", handler.DeleteAlbumByID)
 
 	r.Run(":8080")
